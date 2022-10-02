@@ -52,11 +52,6 @@ public class AI implements Player {
     }
 
     @Override
-    public boolean isFirstPlayer() {
-        return firstPlayer;
-    }
-
-    @Override
     public void setFirstPlayer(boolean firstPlayer) {
         this.firstPlayer = firstPlayer;
     }

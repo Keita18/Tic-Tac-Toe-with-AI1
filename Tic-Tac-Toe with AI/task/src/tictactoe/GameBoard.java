@@ -7,24 +7,6 @@ public class GameBoard {
 
     public GameBoard() {}
 
-    public GameBoard(String initialState) {
-        init(initialState);
-    }
-
-    private void init(String initialState) {
-        int xCount, oCount, index;
-        index = xCount = oCount = 0;
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (initialState.charAt(index) == 'X') xCount++;
-                if (initialState.charAt(index) == 'O') oCount++;
-                board[i][j] = initialState.charAt(index);
-                index++;
-            }
-        }
-        moveCount -= xCount + oCount;
-    }
-
     public Infos move(int x, int y, boolean isPlayer1) {
         if (board[--x][--y] == '_') {
             if (isPlayer1) board[x][y] = 'X';

@@ -24,25 +24,22 @@ public class User implements Player{
     private Infos userMove() {
         String coordinates = scanner.nextLine();
         int xCoordinates;
-        int yCordinates;
+        int yCoordinates;
         try {
             xCoordinates = Integer.parseInt(coordinates.split(" ")[0]);
-            yCordinates = Integer.parseInt(coordinates.split(" ")[1]);
+            yCoordinates = Integer.parseInt(coordinates.split(" ")[1]);
         } catch (Exception e) {
             return Message.INVALID_DIGIT;
         }
-        if (xCoordinates > 3 || yCordinates > 3 || xCoordinates < 1 || yCordinates < 1)
+        if (xCoordinates > 3 || yCoordinates > 3 || xCoordinates < 1 || yCoordinates < 1)
             return Message.OUT_OF_BOUND;
 
-        return gameBoard.move(xCoordinates, yCordinates, firstPlayer);
+        return gameBoard.move(xCoordinates, yCoordinates, firstPlayer);
     }
 
-    public boolean isFirstPlayer() {
-        return firstPlayer;
-    }
-
-    public void setFirstPlayer(boolean firstPleyer) {
-        this.firstPlayer = firstPleyer;
+    @Override
+    public void setFirstPlayer(boolean firstPlayer) {
+        this.firstPlayer = firstPlayer;
     }
 
     @Override
