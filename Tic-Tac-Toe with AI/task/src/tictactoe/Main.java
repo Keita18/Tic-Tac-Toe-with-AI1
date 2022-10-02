@@ -1,51 +1,41 @@
 package tictactoe;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         // write your code here
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the cells: ");
-        String userGrid = scanner.next();
-        int userGridI = 0;
-        int play2 = 0;
-        int play1 = 0;
         char[][] grid = new char[][]{{'_', '_', '_'}, {'_', '_', '_'}, {'_', '_', '_'}};
-
-        for (int i=0; i < 3; i ++) {
-            for (int j=0; j<3; j++){
-                if (userGrid.charAt(userGridI) == 'X')
-                    play1++;
-                if (userGrid.charAt(userGridI) == 'O')
-                    play2++;
-
-                    grid[i][j] = userGrid.charAt(userGridI);
-                userGridI++;
-            }
-        }
 
         print(grid);
         String move;
         String state;
         int isDraw = 9;
-        boolean isPlayer1 = play1 <= play2;
+        boolean isPlayer1 =true;
+        Random random = new Random();
         do {
             do {
-                System.out.print("Enter the coordinates: ");
-                var coordinates = scanner.nextLine();
-                move = move(grid, coordinates, isPlayer1);
-                if (move != null) System.out.println(move);
+                int aiX = random.nextInt(3) + 1 ;
+                int aiY = random.nextInt(3) + 1;
+                var coordinates = aiX + " " + aiY;
+                if (isPlayer1) {
+                    System.out.print("Enter the coordinates: ");
+                    coordinates =  scanner.nextLine();
+                }
+                    move = move(grid, coordinates, isPlayer1);
+                if (move != null && isPlayer1) System.out.println(move);
             } while (move != null);
 
             state = checkState(grid);
+            if (!isPlayer1) {
+                System.out.println("Making move level \"easy\"");
+            }
             print(grid);
 
             isDraw--;
             isPlayer1 = !isPlayer1;
-
-            if (state == null && isDraw > 0)
-                System.out.println("Game not finished");
 
         } while (state == null && isDraw > 0);
 

@@ -248,6 +248,21 @@ files:
         }
     }
   learner_created: false
+- name: src/tictactoe/GameLogic.java
+  visible: true
+  learner_created: true
+- name: src/tictactoe/GameBoard.java
+  visible: true
+  learner_created: true
+- name: src/tictactoe/Constants.java
+  visible: true
+  learner_created: true
+- name: src/tictactoe/User.java
+  visible: true
+  learner_created: true
+- name: src/tictactoe/Player.java
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/81/stages/449/implement#comment
 status: Unchecked
 record: -1
