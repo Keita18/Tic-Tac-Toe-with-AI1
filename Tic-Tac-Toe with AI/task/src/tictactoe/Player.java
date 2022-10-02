@@ -1,8 +1,10 @@
 package tictactoe;
 
 interface Player {
-    boolean playFirst = false;
     void play();
+    public boolean isFirstPlayer();
+
+    public void setFirstPlayer(boolean firstPlayer);
 }
 
 interface Infos {
