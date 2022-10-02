@@ -44,4 +44,9 @@ public class User implements Player{
     public void setFirstPlayer(boolean firstPleyer) {
         this.firstPlayer = firstPleyer;
     }
+
+    @Override
+    public void setLevel(int level) {
+//        User don't set level
+    }
 }

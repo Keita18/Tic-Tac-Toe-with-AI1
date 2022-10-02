@@ -2,9 +2,19 @@ package tictactoe;
 
 interface Player {
     void play();
-    public boolean isFirstPlayer();
+    boolean isFirstPlayer();
 
-    public void setFirstPlayer(boolean firstPlayer);
+    void setFirstPlayer(boolean firstPlayer);
+
+    void setLevel(int level);
+}
+
+abstract class Playerw {
+    boolean play;
+    void play() {
+        System.out.println("This is not implemented");
+    }
+
 }
 
 interface Infos {

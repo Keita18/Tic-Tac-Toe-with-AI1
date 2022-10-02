@@ -8,6 +8,8 @@ public class AI implements Player {
 
     private boolean firstPlayer = false;
 
+    private int level = 1;
+
     public AI(GameBoard gameBoard) {
         this.gameBoard = gameBoard;
     }
@@ -15,7 +17,15 @@ public class AI implements Player {
     @Override
     public void play() {
         Message.MAKING_MOVE.print();
-        easyLevel();
+        switch (level) {
+            case 2:
+                mediumLevel();
+            case 3:
+                hardLevel();
+                break;
+            default:
+                easyLevel();
+        }
     }
 
     private void easyLevel() {
@@ -28,10 +38,25 @@ public class AI implements Player {
         } while (!played);
     }
 
+    private void mediumLevel() {
+
+    }
+
+    private void hardLevel() {
+
+    }
+
+    @Override
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    @Override
     public boolean isFirstPlayer() {
         return firstPlayer;
     }
 
+    @Override
     public void setFirstPlayer(boolean firstPlayer) {
         this.firstPlayer = firstPlayer;
     }

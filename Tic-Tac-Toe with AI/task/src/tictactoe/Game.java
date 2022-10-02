@@ -8,9 +8,7 @@ public class Game {
     private Player firstPlayer;
     private Player secondPlayer;
 
-    public Game(GameBoard gameBoard) {
-        this.gameBoard = gameBoard;
-    }
+    public Game() {}
 
     void start() {
         readCommands();
@@ -25,27 +23,9 @@ public class Game {
                 var commands = scanner.nextLine().split(" ");
                 switch (commands[0]) {
                     case "start":
-                        switch (commands[1]) {
-                            case "user":
-                                firstPlayer = new User(gameBoard);
-                                break;
-                            case "easy":
-                                firstPlayer = new AI(gameBoard);
-                                break;
-                            default:
-                                throw new IllegalArgumentException();
-                        }
+                        firstPlayer = switcher(commands[1]);
                         firstPlayer.setFirstPlayer(true);
-                        switch (commands[2]) {
-                            case "user":
-                                secondPlayer = new User(gameBoard);
-                                break;
-                            case "easy":
-                                secondPlayer = new AI(gameBoard);
-                                break;
-                            default:
-                                throw new IllegalArgumentException();
-                        }
+                        secondPlayer = switcher(commands[2]);
                         secondPlayer.setFirstPlayer(false);
                         startGame();
                         break;
@@ -75,5 +55,28 @@ public class Game {
 
         } while (gameState == GameState.GAME_NOT_FINISHED);
         gameState.print();
+    }
+
+    private Player switcher(String command) {
+        Player player;
+        switch (command) {
+            case "user":
+                player = new User(gameBoard);
+                break;
+            case "easy":
+                player = new AI(gameBoard);
+                break;
+            case "medium":
+                player = new AI(gameBoard);
+                player.setLevel(2);
+                break;
+            case "hard":
+                player = new AI(gameBoard);
+                player.setLevel(3);
+                break;
+            default:
+                throw new IllegalArgumentException();
+        }
+        return player;
     }
 }
