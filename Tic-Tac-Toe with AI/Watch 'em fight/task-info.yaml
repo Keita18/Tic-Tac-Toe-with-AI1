@@ -248,9 +248,6 @@ files:
         }
     }
   learner_created: false
-- name: src/tictactoe/GameLogic.java
-  visible: true
-  learner_created: true
 - name: src/tictactoe/GameBoard.java
   visible: true
   learner_created: true
@@ -266,6 +263,15 @@ files:
 - name: src/tictactoe/AI.java
   visible: true
   learner_created: true
+- name: src/tictactoe/Game.java
+  visible: true
+  learner_created: true
+- name: src/tictactoe/Utils.java
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/81/stages/449/implement#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Sun, 02 Oct 2022 21:35:50 UTC
 record: -1

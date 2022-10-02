@@ -20,7 +20,7 @@ enum Message implements Infos {
 }
 
 enum GameState implements Infos {
-    X_WIN("X wins"), O_WIN("Y wins"), DRAW("Draw"),
+    X_WIN("X wins"), O_WIN("O wins"), DRAW("Draw"),
     GAME_NOT_FINISHED("Game not finished");
 
     private final String state;
