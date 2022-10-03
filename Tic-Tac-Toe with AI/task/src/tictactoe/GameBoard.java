@@ -8,9 +8,10 @@ public class GameBoard {
     public GameBoard() {}
 
     public Infos move(int x, int y, boolean isPlayer1) {
-        if (board[--x][--y] == '_') {
-            if (isPlayer1) board[x][y] = 'X';
-            else board[x][y] = 'O';
+        boolean isCellFree = isCellFree(x, y);
+        if (isCellFree) {
+            if (isPlayer1) board[--x][--y] = 'X';
+            else board[--x][--y] = 'O';
             moveCount--;
             return CellState.DONE;
         }
@@ -35,6 +36,11 @@ public class GameBoard {
         if (moveCount <= 0) gameState = GameState.DRAW;
         return gameState;
     }
+
+    public boolean isCellFree(int x, int y) {
+        return board[--x][--y] == '_';
+    }
+
     public void remove(int x, int y) {
         board[--x][--y] = '_';
         moveCount ++;

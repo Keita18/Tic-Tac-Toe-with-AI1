@@ -6,7 +6,9 @@ enum Message implements Infos {
     ENTER_COORDINATES("Enter the coordinates:"),
     INPUT_COMMAND("Input command:"),
     BAD_PARAMS("Bad parameters!"),
-    MAKING_MOVE("Making move level \"easy\"");
+    MAKING_MOVE("Making move level \"easy\""),
+    MAKING_MOVE_M("Making move level \"medium\""),
+    MAKING_MOVE_H("Making move level \"hard\"");
     String message;
 
     Message(String message) {
