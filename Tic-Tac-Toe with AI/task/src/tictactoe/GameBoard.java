@@ -35,6 +35,10 @@ public class GameBoard {
         if (moveCount <= 0) gameState = GameState.DRAW;
         return gameState;
     }
+    public void remove(int x, int y) {
+        board[--x][--y] = '_';
+        moveCount ++;
+    }
 
     public void printState() {
         System.out.println("---------");
