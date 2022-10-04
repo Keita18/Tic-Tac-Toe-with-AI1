@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
@@ -17,6 +18,12 @@
             <option value="$PROJECT_DIR$/Tic-Tac-Toe with AI/task/build/reports/tests" />
             <option value="$PROJECT_DIR$/Tic-Tac-Toe with AI/task/build/test-results" />
             <option value="$PROJECT_DIR$/Tic-Tac-Toe with AI/task/build/tmp" />
+            <option value="$PROJECT_DIR$/Topics (1)/Polymorphism/Find mistake" />
+            <option value="$PROJECT_DIR$/Topics (1)/Polymorphism/Publication and its subclasses" />
+            <option value="$PROJECT_DIR$/Topics (1)/Polymorphism/Theory" />
+            <option value="$PROJECT_DIR$/Topics/Polymorphism/Find mistake" />
+            <option value="$PROJECT_DIR$/Topics/Polymorphism/Publication and its subclasses" />
+            <option value="$PROJECT_DIR$/Topics/Polymorphism/Theory" />
             <option value="$PROJECT_DIR$/util" />
           </set>
         </option>

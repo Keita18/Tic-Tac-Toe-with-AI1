@@ -9,6 +9,12 @@
       <module name="Tic-Tac-Toe_with_AI1.Tic-Tac-Toe_with_AI-task-build-test-results.main" target="11" />
       <module name="Tic-Tac-Toe_with_AI1.Tic-Tac-Toe_with_AI-task-build-tmp.main" target="11" />
       <module name="Tic-Tac-Toe_with_AI1.Tic-Tac-Toe_with_AI-task.main" target="11" />
+      <module name="Tic-Tac-Toe_with_AI1.Topics-Polymorphism-Find_mistake.main" target="11" />
+      <module name="Tic-Tac-Toe_with_AI1.Topics-Polymorphism-Publication_and_its_subclasses.main" target="11" />
+      <module name="Tic-Tac-Toe_with_AI1.Topics-Polymorphism-Theory.main" target="11" />
+      <module name="Tic-Tac-Toe_with_AI1.Topics__1_-Polymorphism-Find_mistake.main" target="11" />
+      <module name="Tic-Tac-Toe_with_AI1.Topics__1_-Polymorphism-Publication_and_its_subclasses.main" target="11" />
+      <module name="Tic-Tac-Toe_with_AI1.Topics__1_-Polymorphism-Theory.main" target="11" />
       <module name="Tic-Tac-Toe_with_AI1.util.main" target="11" />
     </bytecodeTargetLevel>
   </component>

@@ -3,7 +3,7 @@ hyperskill_project:
   ide_files: https://stepik.org/media/attachments/lesson/262721/additional_files.json
   is_template_based: false
   use_ide: true
-update_date: Mon, 03 Oct 2022 16:54:06 UTC
+update_date: Tue, 04 Oct 2022 16:36:15 UTC
 stages:
 - id: 447
   step: 7434
@@ -156,6 +156,10 @@ topics:
     theory_id: 20084
   - title: Data structures
     theory_id: 16927
+  - title: What is an exception
+    theory_id: 3497
+  - title: Hierarchy of exceptions
+    theory_id: 3570
   - title: Pseudocode
     theory_id: 15090
   - title: Pseudocode basics
@@ -164,6 +168,8 @@ topics:
     theory_id: 20922
   - title: Stack
     theory_id: 5252
+  - title: What is a bug
+    theory_id: 5504
   - title: Computer Memory
     theory_id: 18003
   - title: Components of computer memory
@@ -176,6 +182,10 @@ topics:
     theory_id: 5984
   - title: Recursion
     theory_id: 3550
+  - title: Introduction to logging
+    theory_id: 5538
+  - title: Debugging techniques
+    theory_id: 13775
   - title: Protected modifier
     theory_id: 6692
   - title: Referencing subclass objects
