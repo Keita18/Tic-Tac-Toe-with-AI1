@@ -2,9 +2,8 @@ package tictactoe;
 
 public class Main {
     public static void main(String[] args) {
-        BaseNumberGenerator generator = new MagicNumberGenerator(10);
-        var a  = generator.generate();
-        System.out.println(a);
+        Game g = new Game();
+        g.start();
     }
 }
 

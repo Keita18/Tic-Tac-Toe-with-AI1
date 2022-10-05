@@ -5,11 +5,11 @@ import java.util.Random;
 public class AI implements Player {
     private final Random random = new Random();
     GameBoard gameBoard;
-
+    GameState toWin = GameState.O_WIN;
+    GameState toLoose = GameState.X_WIN;
     private boolean firstPlayer = false;
 
     private int level = 1;
-    private int smartLevelCounter = 0;
 
     public AI(GameBoard gameBoard) {
         this.gameBoard = gameBoard;
@@ -46,12 +46,10 @@ public class AI implements Player {
         boolean isCellFree;
         Infos gameState;
         boolean wined = false;
-        boolean bocked = false;
+        boolean blocked = false;
         int xBlock = 0;
         int yBlock = 0;
 
-        GameState toWin = firstPlayer ? GameState.X_WIN : GameState.O_WIN;
-        GameState toLoose = !firstPlayer ? GameState.X_WIN : GameState.O_WIN;
         for (int i = 1; i < 4; i++) {
             for (int j = 1; j < 4; j++) {
                 isCellFree = gameBoard.isCellFree(i, j);
@@ -68,7 +66,7 @@ public class AI implements Player {
                             gameBoard.remove(i, j);
                             xBlock = i;
                             yBlock = j;
-                            bocked = true;
+                            blocked = true;
                         } else {
                             gameBoard.remove(i, j);
                         }
@@ -79,14 +77,66 @@ public class AI implements Player {
             if (wined) break;
         }
         if (!wined) {
-            if (bocked) {
+            if (blocked) {
                 gameBoard.move(xBlock, yBlock, firstPlayer);
             } else easyLevel();
         }
     }
 
     private void hardLevel() {
+        int bestScore = -1000;
+        int bestRow = 0;
+        int bestCol = 0;
+        for (int i = 1; i < 4; i++) {
+            for (int j = 1; j < 4; j++) {
+                if (gameBoard.isCellFree(i, j)) {
+                    gameBoard.move(i, j, firstPlayer);
+                    int moveVal = minimax(0, firstPlayer);
+                    System.out.println("best = " + moveVal +" row-" + i + " col-"+j);
 
+                    gameBoard.remove(i, j);
+
+                    if (moveVal > bestScore) {
+                        bestRow = i;
+                        bestCol = j;
+                        bestScore = moveVal;
+                    }
+                }
+            }
+        }
+        gameBoard.move(bestRow, bestCol, firstPlayer);
+    }
+
+    private int minimax(int depth, boolean isMax) {
+        if (gameBoard.checkState() == toWin)
+            return 10;
+        if (gameBoard.checkState() == toLoose)
+            return -10;
+        if (gameBoard.checkState() == GameState.DRAW)
+            return 0;
+        int best;
+        if (isMax) {
+            best = -1000;
+        } else  {
+            best = 1000;
+        }
+        return loop(depth, best, isMax);
+    }
+
+    private int loop(int depth, int best, boolean isMax) {
+        for (int i = 1; i < 4; i++) {
+            for (int j = 1; j < 4; j++) {
+                if (gameBoard.isCellFree(i, j)) {
+                    gameBoard.move(i, j , isMax);
+                    if (isMax)
+                        best = Math.max(minimax(depth + 1, false), best);
+                    else
+                        best = Math.min(minimax(depth + 1, true), best);
+                    gameBoard.remove(i, j);
+                }
+            }
+        }
+        return best;
     }
 
     @Override
@@ -97,6 +147,10 @@ public class AI implements Player {
     @Override
     public void setFirstPlayer(boolean firstPlayer) {
         this.firstPlayer = firstPlayer;
+        if (firstPlayer) {
+            toWin = GameState.X_WIN;
+            toLoose = GameState.O_WIN;
+        }
     }
 
 }
