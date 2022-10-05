@@ -87,11 +87,12 @@ public class AI implements Player {
         int bestScore = -1000;
         int bestRow = 0;
         int bestCol = 0;
+//        gameBoard.move(1, 1, false);
         for (int i = 1; i < 4; i++) {
             for (int j = 1; j < 4; j++) {
                 if (gameBoard.isCellFree(i, j)) {
                     gameBoard.move(i, j, firstPlayer);
-                    int moveVal = minimax(0, firstPlayer);
+                    int moveVal = minimax(0, !firstPlayer);
                     System.out.println("best = " + moveVal +" row-" + i + " col-"+j);
 
                     gameBoard.remove(i, j);
@@ -114,29 +115,31 @@ public class AI implements Player {
             return -10;
         if (gameBoard.checkState() == GameState.DRAW)
             return 0;
-        int best;
         if (isMax) {
-            best = -1000;
-        } else  {
-            best = 1000;
-        }
-        return loop(depth, best, isMax);
-    }
-
-    private int loop(int depth, int best, boolean isMax) {
-        for (int i = 1; i < 4; i++) {
-            for (int j = 1; j < 4; j++) {
-                if (gameBoard.isCellFree(i, j)) {
-                    gameBoard.move(i, j , isMax);
-                    if (isMax)
-                        best = Math.max(minimax(depth + 1, false), best);
-                    else
-                        best = Math.min(minimax(depth + 1, true), best);
-                    gameBoard.remove(i, j);
+            int best = -1000;
+            for (int i = 1; i < 4; i++) {
+                for (int j = 1; j < 4; j++) {
+                    if (gameBoard.isCellFree(i, j)) {
+                        gameBoard.move(i, j, true);
+                        best = Math.max(best, minimax(depth + 1, false));
+                        gameBoard.remove(i, j);
+                    }
                 }
             }
+            return best;
+        } else {
+            int best = 1000;
+            for (int i = 1; i < 4; i++) {
+                for (int j = 1; j < 4; j++) {
+                    if (gameBoard.isCellFree(i, j)) {
+                        gameBoard.move(i, j, false);
+                        best = Math.min(best, minimax(depth+1, true));
+                        gameBoard.remove(i, j);
+                    }
+                }
+            }
+            return best;
         }
-        return best;
     }
 
     @Override
