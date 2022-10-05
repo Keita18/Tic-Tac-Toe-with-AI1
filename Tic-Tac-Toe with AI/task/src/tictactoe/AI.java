@@ -87,14 +87,11 @@ public class AI implements Player {
         int bestScore = -1000;
         int bestRow = 0;
         int bestCol = 0;
-//        gameBoard.move(1, 1, false);
         for (int i = 1; i < 4; i++) {
             for (int j = 1; j < 4; j++) {
                 if (gameBoard.isCellFree(i, j)) {
                     gameBoard.move(i, j, firstPlayer);
-                    int moveVal = minimax(0, !firstPlayer);
-                    System.out.println("best = " + moveVal +" row-" + i + " col-"+j);
-
+                    int moveVal = minimax(0, false);
                     gameBoard.remove(i, j);
 
                     if (moveVal > bestScore) {
@@ -110,36 +107,36 @@ public class AI implements Player {
 
     private int minimax(int depth, boolean isMax) {
         if (gameBoard.checkState() == toWin)
-            return 10;
+            return 10 - depth;
         if (gameBoard.checkState() == toLoose)
-            return -10;
+            return -10 + depth;
         if (gameBoard.checkState() == GameState.DRAW)
             return 0;
+        int best;
         if (isMax) {
-            int best = -1000;
+            best = -1000;
             for (int i = 1; i < 4; i++) {
                 for (int j = 1; j < 4; j++) {
                     if (gameBoard.isCellFree(i, j)) {
-                        gameBoard.move(i, j, true);
+                        gameBoard.move(i, j, firstPlayer);
                         best = Math.max(best, minimax(depth + 1, false));
                         gameBoard.remove(i, j);
                     }
                 }
             }
-            return best;
         } else {
-            int best = 1000;
+            best = 1000;
             for (int i = 1; i < 4; i++) {
                 for (int j = 1; j < 4; j++) {
                     if (gameBoard.isCellFree(i, j)) {
-                        gameBoard.move(i, j, false);
+                        gameBoard.move(i, j, !firstPlayer);
                         best = Math.min(best, minimax(depth+1, true));
                         gameBoard.remove(i, j);
                     }
                 }
             }
-            return best;
         }
+        return best;
     }
 
     @Override
