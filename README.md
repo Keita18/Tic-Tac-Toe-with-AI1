@@ -1,5 +1,5 @@
 # Tic-Tac-Toe-with-AI1
-Tic-Tac-Toe project with AI using deep Machine learning
+Tic-Tac-Toe project with AI using deep Minimax algorithm
 
 ## Description
 In this project, you'll write a game called Tic-Tac-Toe that you can play against your computer. The computer will have three levels of difficulty — easy, medium, and hard.
