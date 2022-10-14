@@ -1,5 +1,5 @@
 # Tic-Tac-Toe-with-AI1
-Tic-Tac-Toe project with AI using deep Minimax algorithm
+`Tic-Tac-Toe project with AI using deep Minimax algorithm `
 
 ## Description
 In this project, you'll write a game called Tic-Tac-Toe that you can play against your computer. The computer will have three levels of difficulty — easy, medium, and hard.
@@ -8,9 +8,11 @@ To begin with, let's write a program that knows how to work with coordinates and
 
 The top-left cell will have the coordinates (1, 1) and the bottom-right cell will have the coordinates (3, 3), as shown in this table:
 
+```
 (1, 1) (1, 2) (1, 3)
 (2, 1) (2, 2) (2, 3)
 (3, 1) (3, 2) (3, 3)
+```
 
 The program should ask the user to enter the coordinates of the cell where they want to make a move.
 
